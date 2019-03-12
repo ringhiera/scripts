@@ -1,0 +1,12 @@
+environment:
+    project: newsuk-datatech-prod
+    #dataset_input: user_models_input
+    dataset_output: tnl_engagement_metrics
+    output_table1: tnl_engagement_current
+    output_table2: tnl_section_current
+    output_table_gcs1: gs://newsuk-datatech-prod/customer_data_platform/data_science/non_generic_models/engagement_metrics/%s/tnl_engagement_current-*.csv
+    output_table_gcs2: gs://newsuk-datatech-prod/customer_data_platform/data_science/non_generic_models/engagement_metrics/%s/tnl_section_current-*.csv
+    output_gcs_storage:  gs://newsuk-datatech-prod/customer_data_platform/data_science/non_generic_models/engagement_metrics/
+
+
+
