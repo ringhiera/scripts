@@ -1,5 +1,5 @@
 environment:
-    project: newsuk-datatech-prod
+    project: newsuk-datatech-twipe-james
     #dataset_input: user_models_input
     dataset_output: tnl_engagement_metrics
     output_table1: tnl_engagement_current
