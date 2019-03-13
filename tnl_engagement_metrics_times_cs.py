@@ -1519,38 +1519,15 @@ def wait_for_job(job):
 def save_query_to_table(project, query, dataset, table):
     print "Using project: ", project
     client = bigquery.Client(project=project)
-
     job_config = bigquery.QueryJobConfig()
     # Set the destination table
     table_ref = client.dataset(dataset).table(table)
     job_config.destination = table_ref
     job_config.write_disposition="WRITE_TRUNCATE"
-
     query_job = client.query(query, location='EU',
         job_config=job_config)  # API request - starts the query
     res = query_job.result()
-    print("res: ",res)
-    
-    print "Saving query result to Project: ", project, ", dataset: ", dataset, ", table:", table
-
-
-
-
-
-#    source_client = bigquery.Client(project=project)
-#    query_job = source_client.run_async_query(str(uuid.uuid4()), query)
-#    query_job.priority = "BATCH"
-#    query_job.allow_large_results = True
-#    query_job.destination = table
-#    query_job.use_legacy_sql = False
-    #query_job.maximum_billing_tier = 7
-#    print query_job.query
-#    query_job.begin()
-#    print "Saving query result to table:", table
-#    wait_for_job(query_job)
-
-    
-
+    print('Query results loaded to table {}'.format(table_ref.path))
 
     
 def run_export(project, dataset, table_name, sql_query):
@@ -1560,36 +1537,15 @@ def run_export(project, dataset, table_name, sql_query):
 def save_query_to_table2(project, query, dataset, table):
     print "Using project: ", project
     client = bigquery.Client(project=project)
-
     job_config = bigquery.QueryJobConfig()
     # Set the destination table
     table_ref = client.dataset(dataset).table(table)
     job_config.destination = table_ref
     job_config.write_disposition="WRITE_APPEND"
-
     query_job = client.query(query, location='EU',
         job_config=job_config)  # API request - starts the query
     res = query_job.result()
-    print("res: ",res)
-    
-    print "Saving query result to Project: ", project, ", dataset: ", dataset, ", table:", table
-
-#    print "Using project: ", project
-#    dest_client = bigquery.Client(project=project)
-#    table = dest_client.dataset(dataset).table(table)
-#    source_client = bigquery.Client(project=project)
-#    query_job = source_client.query(query)
-#    query_job = source_client.run_async_query(str(uuid.uuid4()), query)
-#   query_job.priority = "BATCH"
-#    query_job.allow_large_results = True
-#    query_job.destination = table
-#    query_job.use_legacy_sql = False
-#    #query_job.maximum_billing_tier = 7
-#    query_job.write_disposition = "WRITE_APPEND"
-#    print query_job.query
-#    query_job.begin()
-#    print "Saving query result to table2:", table
-#    wait_for_job(query_job)
+    print('Query results loaded to table {}'.format(table_ref.path))
 
 
 def run_export2(project, dataset, table_name, sql_query):
@@ -1607,7 +1563,6 @@ def export_data_to_gcs(project, dataset_name, table_name, destination):
     wait_for_job(job)
     print('Exported {}:{} to {}'.format(
         dataset_name, table_name, destination))
-
 
 
 def run_all(project, dataset_output, output_table1, output_table2, output_table_gcs1,output_table_gcs2):
