@@ -1622,10 +1622,10 @@ def run_all(project, dataset_output, output_table1, output_table2, output_table_
         query_list2 = save_query2(project)
         query_list3 = save_query3(project)
 
-       run_export(project, **DIG_USAGE)
-       run_export(project, **DIG_USAGE_ALL)
-       run_export(project, **DIG_DWELL)
-       run_export(project, **DIG_DWELL_ALL)
+        run_export(project, **DIG_USAGE)
+        run_export(project, **DIG_USAGE_ALL)
+        run_export(project, **DIG_DWELL)
+        run_export(project, **DIG_DWELL_ALL)
 
         run_export(project, **query_list1['DIG_USAGE_OVERALL'])
         run_export(project, **query_list1['DIG_DWELL_OVERALL'])
