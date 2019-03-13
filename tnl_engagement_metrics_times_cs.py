@@ -492,7 +492,7 @@ DIG_2WEEK_OUTCOME = {
             (SELECT 
             cpn AS userid,
             cast(CURRENT_DATE() as date) AS period_current,
-            'Recent 1 week usage' AS Product_usage_duration,
+            'Recent 2 week usage' AS Product_usage_duration,
             MAX(CASE WHEN eval_period = 'Temp' AND subscriptionStatusCode = 'Active' THEN cstart END) AS contract_start_date,
             MAX(CASE WHEN eval_period = 'Temp' AND subscriptionStatusCode = 'Active' THEN (DATE_DIFF(cast(CURRENT_DATE() as date),cstart, DAY)) END) AS Tenure_days,
             MAX(CASE WHEN eval_period = 'Temp' AND subscriptionStatusCode = 'Active' THEN round(((DATE_DIFF(cast(CURRENT_DATE() as date),cstart, DAY))/30.5),0) END) AS Tenure_months,
@@ -537,7 +537,7 @@ DIG_4WEEK_OUTCOME = {
             (SELECT 
             cpn AS userid,
             cast(CURRENT_DATE() as date) AS period_current,
-            'Recent 1 week usage' AS Product_usage_duration,
+            'Recent 4 week usage' AS Product_usage_duration,
             MAX(CASE WHEN eval_period = 'Temp' AND subscriptionStatusCode = 'Active' THEN cstart END) AS contract_start_date,
             MAX(CASE WHEN eval_period = 'Temp' AND subscriptionStatusCode = 'Active' THEN (DATE_DIFF(cast(CURRENT_DATE() as date),cstart, DAY)) END) AS Tenure_days,
             MAX(CASE WHEN eval_period = 'Temp' AND subscriptionStatusCode = 'Active' THEN round(((DATE_DIFF(cast(CURRENT_DATE() as date),cstart, DAY))/30.5),0) END) AS Tenure_months,
@@ -582,7 +582,7 @@ DIG_12WEEK_OUTCOME = {
             (SELECT 
             cpn AS userid,
             cast(CURRENT_DATE() as date) AS period_current,
-            'Recent 1 week usage' AS Product_usage_duration,
+            'Recent 12 week usage' AS Product_usage_duration,
             MAX(CASE WHEN eval_period = 'Temp' AND subscriptionStatusCode = 'Active' THEN cstart END) AS contract_start_date,
             MAX(CASE WHEN eval_period = 'Temp' AND subscriptionStatusCode = 'Active' THEN (DATE_DIFF(cast(CURRENT_DATE() as date),cstart, DAY)) END) AS Tenure_days,
             MAX(CASE WHEN eval_period = 'Temp' AND subscriptionStatusCode = 'Active' THEN round(((DATE_DIFF(cast(CURRENT_DATE() as date),cstart, DAY))/30.5),0) END) AS Tenure_months,
